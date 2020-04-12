@@ -7,7 +7,7 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new InmemoryBook("PK+'s Grade Book");
+            IBook book = new DiskBook("PK+'s Grade Book");
 
             EnterGrades(book);
 
@@ -44,6 +44,10 @@ namespace GradeBook
                 catch (FormatException ex)
                 {
                     Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine("**");
                 }
 
             }
